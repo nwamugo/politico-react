@@ -119,10 +119,10 @@
   "dependencies": {
     "axios": "^0.18.0",
     "dotenv": "^8.0.0",
+    "dotenv-webpack": "^1.7.0",
     "draft-js": "^0.10.5",
     "draft-js-plugins-editor": "^2.1.1",
     "draftjs-to-html": "^0.8.4",
-    "dotenv-webpack": "^1.7.0",
     "express": "^4.16.4",
     "html-to-draftjs": "^1.4.0",
     "jsonwebtoken": "^8.5.1",
@@ -140,8 +140,6 @@
     "react-test-renderer": "^16.8.6",
     "react-toastify": "^5.1.0",
     "redux": "^4.0.1",
-    "redux-thunk": "^2.3.0",
-    "semantic-ui-css": "^2.4.1",
-    "semantic-ui-react": "^0.86.0"
+    "redux-thunk": "^2.3.0"
   }
 }
