@@ -557,9 +557,17 @@ li::before {
     left: 0;
     background-color: rgba(0,0,0, .8);
     z-index: 9999;
-    opacity: 0;
-    visibility: hidden;
     transition: all .3s;
+}
+
+.popup-none {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.popup-show {
+  opacity: 1;
+  visibility: visible;
 }
 
 .popup__content {
@@ -573,9 +581,17 @@ li::before {
     border-radius: 3px;
     display: table;
     overflow: hidden;
-    opacity: 0;
-    transform: translate(-50%, -50%) scale(.25);
     transition: all .4s .2s;
+}
+
+.popup__content-none {
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(.25);
+}
+
+.popup__content-show {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
 }
 
 .popup__left {
@@ -629,6 +645,10 @@ li::before {
 
 .popup__close:hover {
     color: #55c57a;
+}
+
+.validationMessage {
+  color: #fff;
 }
 
 .form-heading {

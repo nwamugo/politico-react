@@ -1,9 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-// components
-import Image from '../Image/Image';
-
 // Images
 import RepresentativeSeal from '../../../resources/img/representatives-seal.png';
 import SenateSeal from '../../../resources/img/senate-seal.png';
@@ -18,17 +15,17 @@ const AboutCard = props => {
         <div className="col-1-of-2">
           <div className="composition">
             &nbsp;
-            <Image
+            <img
               src={RepresentativeSeal}
               alt="Photo 1"
               className="composition__photo composition__photo--p1"
             />
-            <Image
+            <img
               src={SenateSeal}
               alt="Photo 2"
               className="composition__photo composition__photo--p2"
             />
-            <Image
+            <img
               src={PresidencySeal}
               alt="Photo 3"
               className="composition__photo composition__photo--p3"
@@ -39,7 +36,7 @@ const AboutCard = props => {
           <div className="tertiary-textbox">
             <h1 className="heading-tertiary u-margin-bottom-small">
               <figure className="pic-house">
-                <Image
+                <img
                   src={ThumbPrint}
                   alt="A thumb print"
                   className="tertiary__photo"

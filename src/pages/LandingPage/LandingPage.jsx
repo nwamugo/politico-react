@@ -7,7 +7,8 @@ import HeaderTextBox from '../../components/presentationals/HeaderTextBox/Header
 import NavBar from '../../components/presentationals/NavBar/NavBar';
 import SecondaryHeading from '../../components/presentationals/SecondaryHeading/SecondaryHeading';
 import Gallery from '../../components/presentationals/Gallery/Gallery';
-import Image from '../../components/presentationals/Image/Image';
+import PartiesRow from '../../components/presentationals/PartiesRow/PartiesRow';
+import Popup from '../../components/presentationals/Popup/Popup';
 
 // images
 import Apga from '../../resources/img/apga-logo.jpg';
@@ -15,15 +16,26 @@ import Ypp from '../../resources/img/ypp.jpg';
 import Acpn from '../../resources/img/acpn-logo.jpg';
 
 // styles
+import '../../resources/css/vendors/normalize.css';
 import '../../resources/css/style.css';
 import '../../resources/css/queries.css';
 
 class LandingPage extends Component {
+  state = { show: false, authMode: '' };
+
+  showPopup = mode => {
+    this.setState({ show: true, authMode: mode });
+  };
+
+  hidePopup = () => {
+    this.setState({ show: false });
+  };
+
   render() {
     return (
       <div>
         <header className="header">
-          <NavBar />
+          <NavBar showPopup={this.showPopup} />
           <HeaderTextBox />
         </header>
         <section className="section-about">
@@ -38,47 +50,16 @@ class LandingPage extends Component {
             className="secondary-textbox"
             h2ClassName="meet"
           />
-          <div className="row parties">
-            <div className="col-1-of-3">
-              <div className="card">
-                <figure className="pic-house">
-                  <Image
-                    src={Apga}
-                    alt="A delivered Parcel"
-                    className="small-gallery__photo"
-                  />
-                  <figcaption className="small-fig-caption" />
-                </figure>
-              </div>
-            </div>
-            <div className="col-1-of-3">
-              <div className="card">
-                <figure className="pic-house">
-                  <Image
-                    src={Ypp}
-                    alt="A delivered Parcel"
-                    className="small-gallery__photo"
-                  />
-                  <figcaption className="small-fig-caption" />
-                </figure>
-              </div>
-            </div>
-            <div className="col-1-of-3">
-              <div className="card">
-                <figure className="pic-house">
-                  <Image
-                    src={Acpn}
-                    alt="A delivered Parcel"
-                    className="small-gallery__photo"
-                  />
-                  <figcaption className="small-fig-caption" />
-                </figure>
-              </div>
-            </div>
-          </div>
+          <PartiesRow src={Apga} />
+          <PartiesRow src={Ypp} />
+          <PartiesRow src={Acpn} />
         </section>
-
         <Footer />
+        <Popup
+          show={this.state.show}
+          authMode={this.state.authMode}
+          handleClose={this.hidePopup}
+        />
       </div>
     );
   }

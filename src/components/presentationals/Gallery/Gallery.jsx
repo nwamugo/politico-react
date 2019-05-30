@@ -1,7 +1,5 @@
 import React from 'react';
 
-import Image from '../Image/Image';
-
 // styles
 import UcheNwosu from '../../../resources/img/uche_nwosu.jpg';
 import BabajideSanwoolu from '../../../resources/img/babajide-sanwoolu.jpg';
@@ -22,7 +20,7 @@ const Gallery = () => {
   return (
     <section className="gallery">
       <figure className="gallery__item gallery__item--1">
-        <Image src={UcheNwosu} alt="Gallery image 1" className="gallery__img" />
+        <img src={UcheNwosu} alt="Gallery image 1" className="gallery__img" />
       </figure>
       <figure className="gallery__item gallery__item--2">
         <img src={Atiku} alt="Gallery image 2" className="gallery__img" />
