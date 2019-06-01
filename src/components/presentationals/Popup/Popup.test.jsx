@@ -1,13 +1,13 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import Image from './Image';
+import Popup from './Popup';
 
-describe('<Image />', () => {
+describe('<Popup />', () => {
   let wrapper;
 
   beforeEach(() => {
-    wrapper = shallow(<Image />);
+    wrapper = shallow(<Popup />);
   });
 
   it('should render without errors', () => {

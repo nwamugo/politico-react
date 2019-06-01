@@ -1,15 +1,15 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import NavBar from './NavBar';
+import FormComponent from './FormComponent';
 import { findByTestAttr } from '../../../utils/testHelpers';
 
 const setUp = (props = {}) => {
-  const component = shallow(<NavBar {...props} />);
+  const component = shallow(<FormComponent {...props} />);
   return component;
 };
 
-describe('<NavBar />', () => {
+describe('<FormComponent />', () => {
   let component;
 
   beforeEach(() => {
@@ -17,7 +17,7 @@ describe('<NavBar />', () => {
   });
 
   it('should render without errors', () => {
-    const wrapper = findByTestAttr(component, 'NavBarComponent');
+    const wrapper = findByTestAttr(component, 'FormComponent');
     expect(wrapper.length).toBe(1);
   });
 });
