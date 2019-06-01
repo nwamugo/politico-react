@@ -39,7 +39,6 @@ class Signup extends Component {
 
   submitHandler = async event => {
     event.preventDefault();
-    console.log('I clicked submit button');
 
     await this.validator.showMessages();
 
@@ -73,6 +72,7 @@ class Signup extends Component {
           submitHandler={this.submitHandler}
           userInputHandler={this.userInputHandler}
           validator={this.validator}
+          authMode={this.props.authMode}
         />
       </div>
     );
@@ -84,6 +84,7 @@ Signup.propTypes = {
   auth: PropTypes.object.isRequired,
   history: PropTypes.object,
   location: PropTypes.object,
+  authMode: PropTypes.string,
 };
 
 const mapStateToProps = state => ({ auth: state.auth });

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import Button from '../../presentationals/Button/Button';
 
-const NavBar = ({ showPopup }) => {
+const NavBar = ({ signupShowPopup, loginShowPopup }) => {
   return (
     <nav data-test="NavBarComponent">
       <div className="row">
@@ -13,14 +13,14 @@ const NavBar = ({ showPopup }) => {
               value="Sign up today"
               signupClassName="btn-signup"
               signupId="pop"
-              onClick={showPopup.bind(this, 'signup')}
+              onClick={signupShowPopup}
             />
           </li>
           <li>
             <Button
               value="Log in"
               loginClassName="btn-login"
-              onClick={showPopup.bind(this, 'login')}
+              onClick={loginShowPopup.bind(this, 'login')}
             />
           </li>
         </ul>
@@ -35,7 +35,8 @@ const NavBar = ({ showPopup }) => {
 NavBar.propTypes = {
   signupText: PropTypes.string,
   loginText: PropTypes.string,
-  showPopup: PropTypes.func,
+  signupShowPopup: PropTypes.func,
+  loginShowPopup: PropTypes.func,
 };
 
 export default NavBar;

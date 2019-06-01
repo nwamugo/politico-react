@@ -1,11 +1,15 @@
 import { toast } from 'react-toastify';
 
-import { signUpRequest } from '../../api/auth';
+import { signUpRequest, loginRequest } from '../../api/auth';
+import { setToken } from '../../api/helpers';
 
 //constants
 export const SIGNUP_INITIALIZED = 'SIGNUP_INITIALIZED';
 export const SIGNUP_SUCCESS = 'SIGNUP_SUCCESS';
 export const SIGNUP_ERROR = 'SIGNUP_ERROR';
+export const LOGIN_INITIALIZED = 'LOGIN_INITIALIZED';
+export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
+export const LOGIN_ERROR = 'LOGIN_ERROR';
 
 export const signUpInitialized = () => {
   return {
@@ -27,6 +31,26 @@ export const signUpError = error => {
   };
 };
 
+export const loginInitialized = () => {
+  return {
+    type: LOGIN_INITIALIZED,
+  };
+};
+
+export const loginSuccess = response => {
+  return {
+    type: LOGIN_SUCCESS,
+    response,
+  };
+};
+
+export const loginError = error => {
+  return {
+    type: LOGIN_ERROR,
+    error,
+  };
+};
+
 export const signupUser = (userData, history) => {
   return async dispatch => {
     try {
@@ -39,6 +63,29 @@ export const signupUser = (userData, history) => {
       const { error } = err.response.data;
       dispatch(signUpError([error]));
       toast.error('Something went wrong. Signup Unsuccessful!');
+    }
+  };
+};
+
+export const loginUser = (userData, history) => {
+  return async dispatch => {
+    try {
+      dispatch(loginInitialized());
+      const { data } = await loginRequest(userData);
+      console.log(data);
+      setToken(data.data.token);
+      const authenticatedUser = {
+        admin: data.data.admin,
+        firstname: data.data.first_name,
+        email: data.data.email,
+        username: data.data.user_name,
+      };
+      dispatch(loginSuccess(authenticatedUser));
+      toast.success(data.message);
+      history.push('/profile');
+    } catch (err) {
+      const { error } = err.response.data;
+      dispatch(loginError([error]));
     }
   };
 };

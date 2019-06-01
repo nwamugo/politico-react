@@ -23,8 +23,12 @@ import '../../resources/css/queries.css';
 class LandingPage extends Component {
   state = { show: false, authMode: '' };
 
-  showPopup = mode => {
-    this.setState({ show: true, authMode: mode });
+  signupShowPopup = () => {
+    this.setState({ show: true, authMode: 'signup' });
+  };
+
+  loginShowPopup = () => {
+    this.setState({ show: true, authMode: 'login' });
   };
 
   hidePopup = () => {
@@ -35,7 +39,10 @@ class LandingPage extends Component {
     return (
       <div>
         <header className="header">
-          <NavBar showPopup={this.showPopup} />
+          <NavBar
+            signupShowPopup={this.signupShowPopup}
+            loginShowPopup={this.loginShowPopup}
+          />
           <HeaderTextBox />
         </header>
         <section className="section-about">
