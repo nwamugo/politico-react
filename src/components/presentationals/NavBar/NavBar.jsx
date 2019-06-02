@@ -5,7 +5,7 @@ import { Link, withRouter } from 'react-router-dom';
 
 import { logout } from '../../../store/modules/auth';
 
-class NavBar extends Component {
+export class NavBar extends Component {
   logoutHandler = async event => {
     event.preventDefault();
 

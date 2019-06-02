@@ -8,7 +8,6 @@ import PartiesCard from '../../presentationals/PartyCard/PartyCard';
 
 class PartiesList extends Component {
   componentDidMount() {
-    console.log('rying to call iT');
     this.props.getAllPartiesRequest();
   }
 
