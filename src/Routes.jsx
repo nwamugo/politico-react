@@ -4,6 +4,7 @@ import { Route, Switch } from 'react-router-dom';
 import LandingPage from './pages/LandingPage/LandingPage';
 import Profile from './pages/Profile/Profile';
 import Parties from './pages/Parties/Parties';
+import ElectionResults from './pages/ElectionResults/ElectionResults';
 
 const Routes = () => {
   return (
@@ -13,6 +14,7 @@ const Routes = () => {
       <Route path="/login" component={LandingPage} />
       <Route path="/profile" component={Profile} />
       <Route path="/parties" component={Parties} />
+      <Route path="/results" component={ElectionResults} />
     </Switch>
   );
 };
