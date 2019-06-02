@@ -1,23 +1,23 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import FormComponent from './FormComponent';
+import ProfileDownSection from './ProfileDownSection';
 import { findByTestAttr } from '../../../utils/testHelpers';
 
 const setUp = (props = {}) => {
-  const component = shallow(<FormComponent {...props} />);
+  const component = shallow(<ProfileDownSection {...props} />);
   return component;
 };
 
-describe('<FormComponent />', () => {
+describe('<ProfileDownSection />', () => {
   let component;
 
   beforeEach(() => {
     component = setUp();
   });
 
-  it('should renders without errors', () => {
-    const wrapper = findByTestAttr(component, 'FormComponent');
+  it('should render without errors', () => {
+    const wrapper = findByTestAttr(component, 'ProfileDownSectionComponent');
     expect(wrapper.length).toBe(1);
   });
 });

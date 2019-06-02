@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 // components
 import AboutCard from '../../components/presentationals/AboutCard/AboutCard';
+import Button from '../../components/presentationals/Button/Button';
 import Footer from '../../components/presentationals/Footer/Footer';
 import HeaderTextBox from '../../components/presentationals/HeaderTextBox/HeaderTextBox';
 import NavBar from '../../components/presentationals/NavBar/NavBar';
@@ -39,10 +40,27 @@ class LandingPage extends Component {
     return (
       <div>
         <header className="header">
-          <NavBar
-            signupShowPopup={this.signupShowPopup}
-            loginShowPopup={this.loginShowPopup}
-          />
+          <NavBar signupId="pop">
+            <ul className="main-nav js--main-nav">
+              <li>
+                <Button
+                  value="Sign up today"
+                  signupClassName="btn-signup"
+                  onClick={this.signupShowPopup}
+                />
+              </li>
+              <li>
+                <Button
+                  value="Log in"
+                  loginClassName="btn-login"
+                  onClick={this.loginShowPopup}
+                />
+              </li>
+            </ul>
+            <a className="mobile-nav-icon js--nav-icon">
+              <i className="ion-navicon-round" />
+            </a>
+          </NavBar>
           <HeaderTextBox />
         </header>
         <section className="section-about">
