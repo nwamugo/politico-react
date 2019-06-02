@@ -697,6 +697,7 @@ li::before {
 .admin-page,
 .results-page {
     background-color: #eee;
+    height: 100vh;
 }
 
 .profile-pic {
