@@ -691,13 +691,14 @@ li::before {
 
 
 /*Citizen's Page*/
-.profile-page,
 .aspirants-page,
+.parties-page,
+.profile-page,
 .parties-page,
 .admin-page,
 .results-page {
     background-color: #eee;
-    height: 100vh;
+    height: -webkit-fill-available;
 }
 
 .profile-pic {

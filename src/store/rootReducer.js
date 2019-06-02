@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
 import { authReducer } from './modules/auth';
-import { profileReducer } from './modules/profile';
+import { partiesReducer } from './modules/parties';
 
 export default combineReducers({
   auth: authReducer,
-  profile: profileReducer,
+  parties: partiesReducer,
 });
