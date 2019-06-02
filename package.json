@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "description": "A political web platform that empowers citizens with their mandate",
   "main": "index.js",
+  "engines": {
+    "npm": "6.9.0",
+    "node": "11.10.1"
+  },
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged"
@@ -141,6 +145,8 @@
     "react-toastify": "^5.1.0",
     "redux": "^4.0.1",
     "redux-thunk": "^2.3.0",
+    "semantic-ui-css": "^2.4.1",
+    "semantic-ui-react": "^0.87.1",
     "simple-react-validator": "^1.0.7"
   }
 }

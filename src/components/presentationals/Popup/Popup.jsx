@@ -1,5 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 // components
 import Signup from '../../containers/Signup/Signup';
@@ -54,6 +56,7 @@ const Popup = ({ handleClose, show, authMode }) => {
           {authMode === login && <Login authMode={authMode} />}
         </div>
       </div>
+      <ToastContainer />
     </div>
   );
 };

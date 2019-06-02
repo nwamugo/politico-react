@@ -8,10 +8,13 @@ const FormComponent = ({
   state,
   validator,
   authMode,
+  isLoading,
 }) => {
   const { isChecked, userData } = state;
   const signup = 'signup';
   const login = 'login';
+
+  console.log(isLoading);
 
   return (
     <form onSubmit={submitHandler} className="form" data-test="FormComponent">
@@ -137,7 +140,16 @@ const FormComponent = ({
       )}
 
       <div className="form__group">
-        {authMode === signup && (
+        {authMode === signup && isLoading && (
+          <button
+            id="modalSignup"
+            className="btn btn-golden u-margin-right-small ui basic loading button"
+            onClick={submitHandler}
+          >
+            Sign Up &rarr;
+          </button>
+        )}
+        {authMode === signup && !isLoading && (
           <button
             id="modalSignup"
             className="btn btn-golden u-margin-right-small"
@@ -146,7 +158,15 @@ const FormComponent = ({
             Sign Up &rarr;
           </button>
         )}
-        {authMode === login && (
+        {authMode === login && isLoading && (
+          <button
+            id="modalLogin"
+            className="btn btn-darkblue u-margin-top-small u-margin-right-small ui basic loading button"
+          >
+            Login &rarr;
+          </button>
+        )}
+        {authMode === login && !isLoading && (
           <button
             id="modalLogin"
             className="btn btn-darkblue u-margin-top-small u-margin-right-small"

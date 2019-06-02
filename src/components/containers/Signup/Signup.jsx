@@ -64,7 +64,7 @@ class Signup extends Component {
   };
 
   render() {
-    console.log('we are in signup');
+    console.log('we are in signup', this.props.auth.isLoading);
     return (
       <div>
         <FormComponent
@@ -73,6 +73,7 @@ class Signup extends Component {
           userInputHandler={this.userInputHandler}
           validator={this.validator}
           authMode={this.props.authMode}
+          isLoading={this.props.auth.isLoading}
         />
       </div>
     );

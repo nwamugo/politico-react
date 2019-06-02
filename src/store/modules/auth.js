@@ -70,6 +70,7 @@ export const signupUser = (userData, history) => {
     try {
       dispatch(signUpInitialized());
       const { data } = await signUpRequest(userData);
+      localStorage.setItem('user', JSON.stringify(data.data));
       console.log(data);
       history.push('/profile');
       dispatch(signUpSuccess(data));
@@ -86,6 +87,7 @@ export const loginUser = (userData, history) => {
     try {
       dispatch(loginInitialized());
       const { data } = await loginRequest(userData);
+      console.log('reading', data);
       localStorage.setItem('user', JSON.stringify(data.data));
       const [details] = data.data;
 
@@ -105,19 +107,19 @@ export const loginUser = (userData, history) => {
   };
 };
 
-export const logout = () => {
-  return async dispatch => {
+export const logout = history => {
+  return dispatch => {
     dispatch(logoutInitialized());
     destroyToken();
     dispatch(logoutSuccess());
-    location.reload();
+    history.push('/');
   };
 };
 
 export const initialState = {
   isAuthenticated: false,
   isLoading: false,
-  errorResponse: {},
+  errorResponse: [],
   successResponse: { status: '' },
 };
 
@@ -178,7 +180,7 @@ export const authReducer = (state = initialState, action) => {
     case LOGOUT_SUCCESS:
       return {
         ...state,
-        loggedInUser: null,
+        isAuthenticated: false,
         successResponse: {},
         errorResponse: [],
         isLoading: false,

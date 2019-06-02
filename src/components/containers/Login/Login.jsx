@@ -34,6 +34,7 @@ export class Login extends Component {
   submitHandler = async event => {
     event.preventDefault();
     console.log('I clicked submit button');
+    console.log('50 cent', this.props.auth.isLoading);
 
     this.validator.showMessages();
 
@@ -74,6 +75,7 @@ export class Login extends Component {
           userInputHandler={this.userInputHandler}
           validator={this.validator}
           authMode={this.props.authMode}
+          isLoading={this.props.auth.isLoading}
         />
       </div>
     );
@@ -85,6 +87,7 @@ Login.propTypes = {
   auth: PropTypes.object.isRequired,
   authMode: PropTypes.string,
   history: PropTypes.object,
+  isLoading: PropTypes.bool,
 };
 
 const mapStateToProps = state => ({ auth: state.auth });
