@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 const PartiesRow = ({ src }) => {
   return (
-    <div className="row parties">
+    <div className="parties">
       <div className="col-1-of-3">
         <div className="card">
           <figure className="pic-house">
