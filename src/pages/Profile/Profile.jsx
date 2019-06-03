@@ -1,16 +1,27 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { PropTypes } from 'prop-types';
 
 import NavBar from '../../components/presentationals/NavBar/NavBar';
 import ProfileTopSection from '../../components/presentationals/ProfileTopSection/ProfileTopSection';
 import ProfileDownSection from '../../components/presentationals/ProfileDownSection/ProfileDownSection';
 
+//actions
+import { getAllOfficesRequest } from '../../store/modules/offices';
+
 class Profile extends Component {
   user = JSON.parse(localStorage.user);
 
   componentDidMount() {
+    this.props.getAllOfficesRequest();
     console.log(this.user);
   }
+
+  buttonText = {
+    first: 'View Aspirants',
+    second: 'View Political Parties',
+    third: 'View Election Results',
+  };
   render() {
     return (
       <div className="profile-page">
@@ -20,7 +31,11 @@ class Profile extends Component {
           </Dimmer>
         )} */}
         <header className="profile-header">
-          <NavBar className="navs" />
+          <NavBar
+            className="navs"
+            buttonText={this.buttonText}
+            buttonLeads3="/results"
+          />
         </header>
 
         <main className="user-pf">
@@ -35,7 +50,7 @@ class Profile extends Component {
 }
 
 Profile.propTypes = {
-  getUserProfileRequest: PropTypes.func,
+  getAllOfficesRequest: PropTypes.func,
   profile: PropTypes.object,
   isLoading: PropTypes.bool,
 };
@@ -53,4 +68,7 @@ Profile.propTypes = {
 //   };
 // };
 
-export default Profile;
+export default connect(
+  null,
+  { getAllOfficesRequest },
+)(Profile);

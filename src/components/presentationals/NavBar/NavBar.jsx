@@ -14,6 +14,8 @@ export class NavBar extends Component {
   };
 
   render() {
+    const { buttonText, buttonLeads3 } = this.props;
+
     return (
       <nav data-test="NavBarComponent" className={`${this.props.className}`}>
         {this.props.signupId && (
@@ -42,27 +44,27 @@ export class NavBar extends Component {
             </div>
             <div className="row sub-nav">
               <ul className="main-nav">
-                <li>
+                {/* <li>
                   <Link to="/aspirants">
                     <button
                       id="viewAspirants"
                       className="btn btn-view-aspirants"
                     >
-                      View Aspirants
+                      {buttonText.first}
                     </button>
                   </Link>
-                </li>
+                </li> */}
                 <li>
                   <Link to="/parties">
                     <button id="viewParties" className="btn btn-view-parties">
-                      View Political Parties
+                      {buttonText.second}
                     </button>
                   </Link>
                 </li>
                 <li>
-                  <Link to="results">
+                  <Link to={buttonLeads3}>
                     <button id="viewResults" className="btn btn-view-results">
-                      View Election Results
+                      {buttonText.third}
                     </button>
                   </Link>
                 </li>
@@ -81,6 +83,8 @@ NavBar.propTypes = {
   className: PropTypes.string,
   logout: PropTypes.func,
   history: PropTypes.object,
+  buttonText: PropTypes.object,
+  buttonLeads3: PropTypes.string,
 };
 
 export default connect(

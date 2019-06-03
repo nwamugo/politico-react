@@ -22,9 +22,9 @@ const ProfileTopSection = () => {
             <h3 className="user-kind">Citizen</h3>
           </div>
           <div className="user-pudding">
-            <button href="aspirants.html" className="btn btn-run new__order">
+            {/* <button href="aspirants.html" className="btn btn-run new__order">
               Run for Office
-            </button>
+            </button> */}
           </div>
         </div>
       </div>
